@@ -3,8 +3,11 @@ package com.example;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 
 public class LoginTest {
@@ -20,7 +23,12 @@ public class LoginTest {
 
         driver.navigate().to("http://103.139.122.250:4000/");
 
-        driver.findElement(By.name("email")).sendKeys("wrong@email.com");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement emailField = wait.until(
+            ExpectedConditions.presenceOfElementLocated(By.name("email"))
+        );
+
+        emailField.sendKeys("wrong@email.com");
         driver.findElement(By.name("password")).sendKeys("wrongpassword");
         driver.findElement(By.id("m_login_signin_submit")).click();
 
