@@ -45,7 +45,5 @@ public class LoginTest {
                pageSource.contains("Incorrect"));
 
         driver.quit();
-    }
+    }//trigerS
 }
-//trigger for emaillllgit abcajh gafghahzhahab ajjdhsjdjakl adhajshj
-// test again and again
