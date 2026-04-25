@@ -47,5 +47,3 @@ public class LoginTest {
         driver.quit();
     }
 }
-
-//comit
